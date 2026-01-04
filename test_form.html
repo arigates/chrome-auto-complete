@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Complete Test Form</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Test Form for Auto Complete Extension</h1>
+    <p>Use the context menu "Fill Form" to populate this form.</p>
+
+    <div class="form-group">
+        <label for="usr">Username</label>
+        <input type="text" id="usr" name="username_field">
+    </div>
+
+    <div class="form-group">
+        <label for="pwd">Password</label>
+        <input type="password" id="pwd">
+    </div>
+
+    <div class="form-group">
+        <label for="full_name">Full Name</label>
+        <input type="text" id="full_name" placeholder="Name">
+    </div>
+
+    <div class="form-group">
+        <label>Address</label>
+        <!-- Wrapping label implicit check not compatible with this structure, but previous element check might work if I did that? No, my code checks for wrapping label or 'for'. This label has no 'for'. Let's give it a for. -->
+        <input type="text" aria-label="Address">
+        <small>Detected via aria-label="Address"</small>
+    </div>
+
+    <div class="form-group">
+        <label for="email_addr">Email Address</label>
+        <input type="email" id="email_addr">
+    </div>
+
+    <div class="form-group">
+        <label for="tel">Phone Number</label>
+        <input type="tel" id="tel">
+    </div>
+
+    <div class="form-group">
+        <label for="wa">WhatsApp</label>
+        <input type="text" id="wa">
+    </div>
+
+    <div class="form-group">
+        <label>Product Price (Custom Field Test)</label>
+        <input type="text" id="price_field">
+    </div>
+
+    <div class="form-group">
+        <label>Shirt Size (Custom Field Test)</label>
+        <input type="text" placeholder="Size">
+    </div>
+
+    <button type="submit">Submit (Prevented)</button>
+
+    <script>
+        document.querySelector('button').addEventListener('click', (e) => {
+            e.preventDefault();
+            alert('Form submitted! Check values.');
+        });
+    </script>
+</body>
+
+</html>
